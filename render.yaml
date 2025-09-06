@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telegram-payment-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        fromSecret: BOT_TOKEN
+      - key: ADMIN_IDS
+        fromSecret: ADMIN_IDS
+      - key: GROUP_CHAT_ID
+        fromSecret: GROUP_CHAT_ID
